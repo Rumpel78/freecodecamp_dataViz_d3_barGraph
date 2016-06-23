@@ -62,12 +62,23 @@ export default class BarChart {
                     .scale(scaleXaxis)
                     .ticks(20)
                     .orient('bottom');
+    this.svg.append('text')
+        .attr('x', this.config.canvasWidth / 2)
+        .attr('y', this.config.canvasHeight - this.config.padding[3] / 2 + 20)
+        .style('text-anchor', 'middle')
+        .text(this.config.xAxisText);
 
     // Create y axis
     this.axisY = d3.svg.axis()
                     .scale(this.scaleY)
                     .ticks(20)
                     .orient('left');
+    this.svg.append('text')
+        .attr('transform', 'rotate(-90)')
+        .attr('x', -this.startY)
+        .attr('y', this.startX+ 20)
+        .style('text-anchor', 'end')
+        .text(this.config.yAxisText);
   }
 
   showData() {
