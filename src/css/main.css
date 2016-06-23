@@ -1,25 +1,42 @@
 body {
+  background-image: url('../assets/money.jpg');
+  background-repeat: no-repeat;
   background-color: #eee;
+  background-size:  cover;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  color: steelblue;  
 }
 
+h1, p {
+  text-align: center;
+}
+p {
+  font-size: 12px;
+}
+
+.container {
+  width: 1050px;
+  margin: auto;
+  margin-top: 50px;
+  background-color: #fafafa;
+  box-shadow: 5px 5px 5px #333;
+  padding: 5px 0px 10px 0px;
+}
 
 svg {
-  background-color: #fff;
-  border:1px solid #333;
-  box-shadow: 5px 5px 5px;
   margin: auto;
   display:block;
 }
 
 .bar {
-  fill: #99f; 
+  fill: steelblue; 
 }
 .bar:hover {
-  fill: #bbf;
+  fill: lightsteelblue;
 }
 
 .axis text {
+  fill: black;
   font-size: 14px;
 }
 
@@ -42,3 +59,4 @@ div.tooltip {
     pointer-events: none;
     box-shadow: 2px 2px 2px;
 }
+

@@ -1,5 +1,5 @@
 export default {
   canvasWidth: '1050',
-  canvasHeight: '650',
-  padding: [80, 100, 40, 40],
+  canvasHeight: '500',
+  padding: [80, 40, 40, 40],
 };

@@ -3,7 +3,7 @@
 import config from './config';
 import BarChart from './components/BarChart';
 
-const barChart = new BarChart('body', config, (b) => {
+const barChart = new BarChart('.barGraph', config, (b) => {
   console.log('BarChart constructed');
   b.getData('datasets/GDP-data.json', (d) => {
     console.log('getData finished');

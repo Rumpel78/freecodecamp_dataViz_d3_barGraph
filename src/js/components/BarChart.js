@@ -57,7 +57,7 @@ export default class BarChart {
 
     const scaleXaxis = d3.time.scale()
                     .domain([minDate, maxDate])
-                    .range([0, this.innerWidth]);
+                    .range([0, this.innerWidth - this.scaleX.rangeBand()]);
     this.axisX = d3.svg.axis()
                     .scale(scaleXaxis)
                     .ticks(20)
