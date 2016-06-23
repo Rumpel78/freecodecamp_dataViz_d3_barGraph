@@ -1,1 +1,44 @@
-body{background-color:#eee;font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif}svg{background-color:#fff;border:1px solid #333;box-shadow:5px 5px 5px;margin:auto;display:block}.bar{fill:#99f}.bar:hover{fill:#bbf}.axis text{font-size:14px}.axis line,.axis path{fill:none;stroke:#000;shape-rendering:crispEdges}div.tooltip{position:absolute;text-align:center;padding:2px;font-size:16px;background:#b0c4de;border:0;border-radius:8px;pointer-events:none;box-shadow:2px 2px 2px}
+body {
+  background-color: #eee;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+
+svg {
+  background-color: #fff;
+  border:1px solid #333;
+  box-shadow: 5px 5px 5px;
+  margin: auto;
+  display:block;
+}
+
+.bar {
+  fill: #99f; 
+}
+.bar:hover {
+  fill: #bbf;
+}
+
+.axis text {
+  font-size: 14px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+/* KUDOS: http://bl.ocks.org/d3noob/a22c42db65eb00d4e369 */
+div.tooltip {	
+    position: absolute;
+    text-align: center;
+    padding: 2px;
+    font-size: 16px;
+    background: lightsteelblue;	
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+    box-shadow: 2px 2px 2px;
+}
