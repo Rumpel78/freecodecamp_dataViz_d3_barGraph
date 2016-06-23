@@ -17,6 +17,7 @@ var replace = require('gulp-replace');
 
 var reload = browserSync.reload;
 
+
 // Browser
 gulp.task('browser-sync', function() {
   browserSync.init({
@@ -33,7 +34,7 @@ gulp.task('browser-sync', function() {
 gulp.task('watch', function() {
   gulp.watch('src/js/**/*.js', ['build:js:main']);
   gulp.watch('src/css/**/*.css', ['build:css']);
-  gulp.watch('src/*.html', ['build:html']);
+  gulp.watch('src/*.html', ['build:html:dev']);
   gulp.watch('src/datasets/*', ['move:datasets']);
   gulp.watch('src/fonts/*', ['move:fonts']);
 });
