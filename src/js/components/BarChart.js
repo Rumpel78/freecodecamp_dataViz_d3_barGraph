@@ -1,5 +1,6 @@
 export default class BarChart {
   constructor(parentElement, config, cb) {
+    // Save config and calculate usefull shortcuts
     this.config = config;
     this.innerWidth = config.canvasWidth - config.padding[0] - config.padding[2];
     this.innerHeight = config.canvasHeight - config.padding[1] - config.padding[3];
@@ -8,13 +9,12 @@ export default class BarChart {
     this.endX = config.canvasWidth - config.padding[2];
     this.endY = config.canvasHeight - config.padding[3];
 
-    console.log(this.startX, this.startY, this.innerWidth, this.innerHeight, this.endX, this.endY);
-
+    // Store refs to elements
     const canvas = this.createSvgCanvas(parentElement);
     this.svg = canvas.canvas;
     this.dataGroup = canvas.dataGroup;
 
-    // Define the div for the tooltip http://bl.ocks.org/d3noob/a22c42db65eb00d4e369
+    // Define the div for the tooltip, see http://bl.ocks.org/d3noob/a22c42db65eb00d4e369
     this.tooltip = d3.select('body').append('div')
       .attr('class', 'tooltip')
       .style('opacity', 0);
@@ -24,6 +24,7 @@ export default class BarChart {
   }
 
   getData(url, cb) {
+    // Get data per Request
     const xobj = new XMLHttpRequest();
     xobj.overrideMimeType('application/json');
     xobj.open('GET', url, true);
@@ -70,8 +71,11 @@ export default class BarChart {
   }
 
   showData() {
-    const bars = this.dataGroup.selectAll('p').data(this.data);
+    // Format for tooltip
     const dateFormat = d3.time.format('%Y - %B');
+
+    // D3js select, exit, enter, update
+    const bars = this.dataGroup.selectAll('p').data(this.data);
 
     bars.exit().remove();
 
@@ -98,8 +102,9 @@ export default class BarChart {
                 .duration(500)
                 .style('opacity', 0);
         });
+        // Mouseover tooltip end
 
-    // bars. change
+    // finaly add x and y axis
     this.svg.append('g')
             .attr('class', 'x axis')
             .attr('transform', `translate(${this.startX}, ${this.endY})`)
@@ -111,6 +116,7 @@ export default class BarChart {
   }
 
   createSvgCanvas(parentElement) {
+    // Creates basic svg canvas
     const canvas = d3.select(parentElement)
       .append('svg')
       .attr('width', this.config.canvasWidth)

@@ -7,6 +7,7 @@ What I have used to fullfill this assignment:
  * [Gulp](http://gulpjs.com) as my build system
  * [Bower](https://bower.io) as package manager - I might change this using npm
  * [NodeJs](https://nodejs.org) with browsersync, rollup, babel and eslint
+* [Visual Studio Code](https://code.visualstudio.com/) from Microsoft - my current favorite editor
 
 Thanks to:
  * d3noob for the [simple d3js tooltip](http://bl.ocks.org/d3noob/a22c42db65eb00d4e369)
