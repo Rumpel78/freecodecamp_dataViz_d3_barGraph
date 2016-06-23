@@ -76,7 +76,7 @@ export default class BarChart {
     this.svg.append('text')
         .attr('transform', 'rotate(-90)')
         .attr('x', -this.startY)
-        .attr('y', this.startX+ 20)
+        .attr('y', this.startX + 20)
         .style('text-anchor', 'end')
         .text(this.config.yAxisText);
   }
