@@ -21,8 +21,7 @@ var reload = browserSync.reload;
 gulp.task('browser-sync', function() {
   browserSync.init({
     server: {
-      directory: true,
-      baseDir: "./build/"
+      baseDir: "./build/",
     },
     files: ['./build/**/*.*'],
     browser: 'google chrome',
