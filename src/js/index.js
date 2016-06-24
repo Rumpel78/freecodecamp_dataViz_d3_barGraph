@@ -5,10 +5,17 @@ import BarChart from './components/BarChart';
 
 const barChart = new BarChart('.barGraph', config, (b) => {
   console.log('BarChart constructed');
-  b.getData('datasets/GDP-data.json', (d) => {
-    console.log('getData finished');
-    b.setData(d.data);
-    b.showData();
-    console.log('ShowData finished');
+  b.showData('datasets/GDP-data.json',
+    (d) => {
+      return d.data;
+    },
+    (err) => {
+      if (err) {
+        console.error('Error loading data: ', err);
+        d3.select('h1').text('Sorry, there was an error loading the data!');
+      }
+      else {
+        console.log('ShowData finished');
+      }
   });
 });

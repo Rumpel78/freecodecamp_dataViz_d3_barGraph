@@ -23,19 +23,17 @@ export default class BarChart {
     cb(this);
   }
 
-  getData(url, cb) {
-    // Get data per Request
-    const xobj = new XMLHttpRequest();
-    xobj.overrideMimeType('application/json');
-    xobj.open('GET', url, true);
-    xobj.onreadystatechange = function () {
-      if (xobj.readyState === 4 && xobj.status === 200) {
-        console.log('BarGraph.getData: Data loaded');
-        const dataRaw = JSON.parse(xobj.responseText);
-        cb(dataRaw);
+  showData(url, dataPreprocessor, cb) {
+    d3.json(url, (err, data) => {
+      if (err) {
+        cb(err);
       }
-    };
-    xobj.send(null);
+      else {
+        data = dataPreprocessor(data);
+        this.setData(data);
+        this.drawData();
+      }
+    });
   }
 
   setData(data) {
@@ -81,7 +79,7 @@ export default class BarChart {
         .text(this.config.yAxisText);
   }
 
-  showData() {
+  drawData() {
     // Format for tooltip
     const dateFormat = d3.time.format('%Y - %B');
 
