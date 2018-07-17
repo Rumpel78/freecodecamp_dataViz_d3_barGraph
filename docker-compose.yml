@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  bargraph:
+    build: .
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: any
+      resources:
+        limits:
+          cpus: "0.10"
+          memory: 50M
+    restart: always
+    ports:
+      - "80:80"
+    environment:
+      - BASEPATH=
